@@ -12,6 +12,9 @@ namespace Fighting
         public Form1()
         {
             InitializeComponent();
+
+            FirstCharacter = null!;
+            SecondCharacter = null!;
         }
 
         private void SetTransperency()
