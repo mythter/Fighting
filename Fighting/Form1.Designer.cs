@@ -38,6 +38,7 @@
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(930, 540);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
