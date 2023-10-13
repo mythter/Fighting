@@ -33,7 +33,7 @@
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             BackgroundImage = Properties.Resources.Background;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(930, 540);

@@ -1,5 +1,6 @@
-﻿using Fighting.Models;
-using System.Runtime.CompilerServices;
+﻿using Fighting.Enums;
+using Fighting.Models;
+using Type = Fighting.Enums.Type;
 
 namespace Fighting.Controls
 {
@@ -14,9 +15,10 @@ namespace Fighting.Controls
 
             if (character is not null)
             {
-                Head = character.Head;
-                Body = character.Body;
-                Legs = character.Legs;
+                Head = character.Head!;
+                Body = character.Body!;
+                Legs = character.Legs!;
+                Type = character.Type;
             }
         }
 
@@ -35,6 +37,49 @@ namespace Fighting.Controls
             get => LegsPictureBox.Image;
             set => LegsPictureBox.Image = value;
         }
+
+        private Side _side;
+        public Side Side
+        {
+            get => _side;
+            set
+            {
+                _side = value;
+                if (_side == Side.Left)
+                {
+                    ShieldLeftPicBox1.Enabled = false;
+                    ShieldLeftPicBox2.Enabled = false;
+                    ShieldLeftPicBox3.Enabled = false;
+                    ShieldLeftPicBox1.Visible = false;
+                    ShieldLeftPicBox2.Visible = false;
+                    ShieldLeftPicBox3.Visible = false;
+                    Shields = new PictureBox[]
+                    {
+                        ShieldRightPicBox1,
+                        ShieldRightPicBox2,
+                        ShieldRightPicBox3
+                    };
+                }
+                else
+                {
+                    ShieldRightPicBox1.Enabled = false;
+                    ShieldRightPicBox2.Enabled = false;
+                    ShieldRightPicBox3.Enabled = false;
+                    ShieldRightPicBox1.Visible = false;
+                    ShieldRightPicBox2.Visible = false;
+                    ShieldRightPicBox3.Visible = false;
+                    Shields = new PictureBox[]
+                    {
+                        ShieldLeftPicBox1,
+                        ShieldLeftPicBox2,
+                        ShieldLeftPicBox3
+                    };
+                }
+            }
+        }
+        public Type Type { get; set; }
+
+        public PictureBox[]? Shields { get; set; }
 
         public event EventHandler? CharacterMouseEnter;
         public event EventHandler? CharacterMouseDown;
@@ -72,6 +117,15 @@ namespace Fighting.Controls
 
         private void PictureBox_MouseEnter(object sender, EventArgs e)
         {
+            if (Type == Type.Hero)
+            {
+                ((PictureBox)sender!).BackColor = Color.FromArgb(80, 39, 245, 75);
+            }
+            else if (Type == Type.Enemy)
+            {
+                ((PictureBox)sender!).BackColor = Color.FromArgb(80, 245, 39, 42);
+            }
+
             CharacterMouseEnter?.Invoke(sender, e);
         }
 
@@ -84,9 +138,49 @@ namespace Fighting.Controls
             }
         }
 
-        private void PictureBox_Click(object sender, EventArgs e)
+        private async void PictureBox_Click(object sender, EventArgs e)
         {
-            CharacterMouseClick?.Invoke(sender, e);
+            PictureBox picBox = (PictureBox)sender!;
+            if (Type == Type.Hero)
+            {
+                int shieldNumber = int.Parse(picBox.Tag!.ToString()!);
+                SwitchShield(shieldNumber);
+
+            }
+            else if (Type == Type.Enemy)
+            {
+                await GetDamage((PictureBox)sender!);
+                CharacterMouseClick?.Invoke(sender, e);
+            }
+        }
+
+        private void ClearShields()
+        {
+            if (Shields is not null)
+            {
+                foreach (var shield in Shields)
+                {
+                    shield.Image = null;
+                }
+            }
+        }
+
+        private void SwitchShield(int shieldNumber)
+        {
+            if (Shields is not null)
+            {
+                PictureBox shield = Shields[shieldNumber];
+
+                if (shield.Image is not null)
+                {
+                    shield.Image = null;
+                }
+                else
+                {
+                    ClearShields();
+                    shield.Image = Properties.Resources.board_left;
+                }
+            }
         }
 
         private void PictureBox_MouseDown(object sender, MouseEventArgs e)
@@ -94,7 +188,7 @@ namespace Fighting.Controls
             CharacterMouseDown?.Invoke(sender, e);
         }
 
-        public async Task SetDamage(PictureBox picBox)
+        public async Task SetDamageColor(PictureBox picBox)
         {
             if (IsShield(picBox))
             {
@@ -107,6 +201,7 @@ namespace Fighting.Controls
             await Task.Delay(250);
             picBox.BackColor = default;
         }
+
         public async Task AnimateDamage()
         {
             Padding padding = Padding;
@@ -132,13 +227,22 @@ namespace Fighting.Controls
 
         private bool IsShield(PictureBox picBox)
         {
-            return picBox.Tag!.ToString() switch
+            if (Shields is not null)
             {
-                "1" => ShieldPicBox1.Image is not null,
-                "2" => ShieldPicBox2.Image is not null,
-                "3" => ShieldPicBox3.Image is not null,
-                _ => throw new ArgumentException(""),
-            };
+                int partNum = int.Parse(picBox.Tag!.ToString()!);
+                return Shields[partNum].Image is not null;
+            }
+            return false;
+        }
+
+        public async Task GetDamage(PictureBox picBox)
+        {
+            await Task.WhenAll(
+                     SetDamageColor(picBox),
+                     AnimateDamage()
+                 );
+            await Task.Delay(500);
         }
     }
+
 }

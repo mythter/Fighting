@@ -31,25 +31,31 @@
             HeadPictureBox = new PictureBox();
             BodyPictureBox = new PictureBox();
             LegsPictureBox = new PictureBox();
-            ShieldPicBox1 = new PictureBox();
-            ShieldPicBox2 = new PictureBox();
-            ShieldPicBox3 = new PictureBox();
+            ShieldRightPicBox1 = new PictureBox();
+            ShieldRightPicBox2 = new PictureBox();
+            ShieldRightPicBox3 = new PictureBox();
+            ShieldLeftPicBox3 = new PictureBox();
+            ShieldLeftPicBox2 = new PictureBox();
+            ShieldLeftPicBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)HeadPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BodyPictureBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)LegsPictureBox).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)ShieldPicBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)ShieldPicBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)ShieldPicBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ShieldRightPicBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ShieldRightPicBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ShieldRightPicBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ShieldLeftPicBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ShieldLeftPicBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ShieldLeftPicBox1).BeginInit();
             SuspendLayout();
             // 
             // HeadPictureBox
             // 
-            HeadPictureBox.Location = new Point(0, 0);
+            HeadPictureBox.Location = new Point(35, 0);
             HeadPictureBox.Name = "HeadPictureBox";
             HeadPictureBox.Size = new Size(212, 105);
             HeadPictureBox.TabIndex = 0;
             HeadPictureBox.TabStop = false;
-            HeadPictureBox.Tag = "1";
+            HeadPictureBox.Tag = "0";
             HeadPictureBox.Click += PictureBox_Click;
             HeadPictureBox.MouseDown += PictureBox_MouseDown;
             HeadPictureBox.MouseEnter += PictureBox_MouseEnter;
@@ -57,12 +63,12 @@
             // 
             // BodyPictureBox
             // 
-            BodyPictureBox.Location = new Point(0, 105);
+            BodyPictureBox.Location = new Point(35, 105);
             BodyPictureBox.Name = "BodyPictureBox";
             BodyPictureBox.Size = new Size(212, 105);
             BodyPictureBox.TabIndex = 1;
             BodyPictureBox.TabStop = false;
-            BodyPictureBox.Tag = "2";
+            BodyPictureBox.Tag = "1";
             BodyPictureBox.Click += PictureBox_Click;
             BodyPictureBox.MouseDown += PictureBox_MouseDown;
             BodyPictureBox.MouseEnter += PictureBox_MouseEnter;
@@ -70,60 +76,96 @@
             // 
             // LegsPictureBox
             // 
-            LegsPictureBox.Location = new Point(0, 210);
+            LegsPictureBox.Location = new Point(35, 210);
             LegsPictureBox.Name = "LegsPictureBox";
             LegsPictureBox.Size = new Size(212, 105);
             LegsPictureBox.TabIndex = 2;
             LegsPictureBox.TabStop = false;
-            LegsPictureBox.Tag = "3";
+            LegsPictureBox.Tag = "2";
             LegsPictureBox.Click += PictureBox_Click;
             LegsPictureBox.MouseDown += PictureBox_MouseDown;
             LegsPictureBox.MouseEnter += PictureBox_MouseEnter;
             LegsPictureBox.MouseLeave += PictureBox_MouseLeave;
             // 
-            // ShieldPicBox1
+            // ShieldRightPicBox1
             // 
-            ShieldPicBox1.Location = new Point(211, 0);
-            ShieldPicBox1.Name = "ShieldPicBox1";
-            ShieldPicBox1.Size = new Size(35, 105);
-            ShieldPicBox1.TabIndex = 3;
-            ShieldPicBox1.TabStop = false;
+            ShieldRightPicBox1.Location = new Point(246, 0);
+            ShieldRightPicBox1.Name = "ShieldRightPicBox1";
+            ShieldRightPicBox1.Size = new Size(35, 105);
+            ShieldRightPicBox1.TabIndex = 3;
+            ShieldRightPicBox1.TabStop = false;
+            ShieldRightPicBox1.Tag = "";
             // 
-            // ShieldPicBox2
+            // ShieldRightPicBox2
             // 
-            ShieldPicBox2.Location = new Point(211, 105);
-            ShieldPicBox2.Name = "ShieldPicBox2";
-            ShieldPicBox2.Size = new Size(35, 105);
-            ShieldPicBox2.TabIndex = 4;
-            ShieldPicBox2.TabStop = false;
+            ShieldRightPicBox2.Location = new Point(246, 105);
+            ShieldRightPicBox2.Name = "ShieldRightPicBox2";
+            ShieldRightPicBox2.Size = new Size(35, 105);
+            ShieldRightPicBox2.TabIndex = 4;
+            ShieldRightPicBox2.TabStop = false;
+            ShieldRightPicBox2.Tag = "";
             // 
-            // ShieldPicBox3
+            // ShieldRightPicBox3
             // 
-            ShieldPicBox3.Location = new Point(211, 210);
-            ShieldPicBox3.Name = "ShieldPicBox3";
-            ShieldPicBox3.Size = new Size(35, 105);
-            ShieldPicBox3.TabIndex = 5;
-            ShieldPicBox3.TabStop = false;
+            ShieldRightPicBox3.Location = new Point(246, 210);
+            ShieldRightPicBox3.Name = "ShieldRightPicBox3";
+            ShieldRightPicBox3.Size = new Size(35, 105);
+            ShieldRightPicBox3.TabIndex = 5;
+            ShieldRightPicBox3.TabStop = false;
+            ShieldRightPicBox3.Tag = "";
+            // 
+            // ShieldLeftPicBox3
+            // 
+            ShieldLeftPicBox3.Location = new Point(0, 210);
+            ShieldLeftPicBox3.Name = "ShieldLeftPicBox3";
+            ShieldLeftPicBox3.Size = new Size(35, 105);
+            ShieldLeftPicBox3.TabIndex = 8;
+            ShieldLeftPicBox3.TabStop = false;
+            ShieldLeftPicBox3.Tag = "";
+            // 
+            // ShieldLeftPicBox2
+            // 
+            ShieldLeftPicBox2.Location = new Point(0, 105);
+            ShieldLeftPicBox2.Name = "ShieldLeftPicBox2";
+            ShieldLeftPicBox2.Size = new Size(35, 105);
+            ShieldLeftPicBox2.TabIndex = 7;
+            ShieldLeftPicBox2.TabStop = false;
+            ShieldLeftPicBox2.Tag = "";
+            // 
+            // ShieldLeftPicBox1
+            // 
+            ShieldLeftPicBox1.Location = new Point(0, 0);
+            ShieldLeftPicBox1.Name = "ShieldLeftPicBox1";
+            ShieldLeftPicBox1.Size = new Size(35, 105);
+            ShieldLeftPicBox1.TabIndex = 6;
+            ShieldLeftPicBox1.TabStop = false;
+            ShieldLeftPicBox1.Tag = "";
             // 
             // CharacterControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            Controls.Add(ShieldPicBox3);
-            Controls.Add(ShieldPicBox2);
-            Controls.Add(ShieldPicBox1);
+            Controls.Add(ShieldLeftPicBox3);
+            Controls.Add(ShieldLeftPicBox2);
+            Controls.Add(ShieldLeftPicBox1);
+            Controls.Add(ShieldRightPicBox3);
+            Controls.Add(ShieldRightPicBox2);
+            Controls.Add(ShieldRightPicBox1);
             Controls.Add(LegsPictureBox);
             Controls.Add(BodyPictureBox);
             Controls.Add(HeadPictureBox);
             Name = "CharacterControl";
-            Size = new Size(246, 315);
+            Size = new Size(281, 315);
             ((System.ComponentModel.ISupportInitialize)HeadPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)BodyPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)LegsPictureBox).EndInit();
-            ((System.ComponentModel.ISupportInitialize)ShieldPicBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)ShieldPicBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)ShieldPicBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ShieldRightPicBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ShieldRightPicBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ShieldRightPicBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ShieldLeftPicBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ShieldLeftPicBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ShieldLeftPicBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -131,8 +173,11 @@
         public PictureBox HeadPictureBox;
         public PictureBox BodyPictureBox;
         public PictureBox LegsPictureBox;
-        public PictureBox ShieldPicBox1;
-        public PictureBox ShieldPicBox2;
-        public PictureBox ShieldPicBox3;
+        public PictureBox ShieldRightPicBox1;
+        public PictureBox ShieldRightPicBox2;
+        public PictureBox ShieldRightPicBox3;
+        public PictureBox ShieldLeftPicBox3;
+        public PictureBox ShieldLeftPicBox2;
+        public PictureBox ShieldLeftPicBox1;
     }
 }
