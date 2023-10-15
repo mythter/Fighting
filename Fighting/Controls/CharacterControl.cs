@@ -138,6 +138,11 @@ namespace Fighting.Controls
             }
         }
 
+        private void PictureBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            CharacterMouseDown?.Invoke(sender, e);
+        }
+
         private async void PictureBox_Click(object sender, EventArgs e)
         {
             PictureBox picBox = (PictureBox)sender!;
@@ -151,17 +156,6 @@ namespace Fighting.Controls
             {
                 await GetDamage((PictureBox)sender!);
                 CharacterMouseClick?.Invoke(sender, e);
-            }
-        }
-
-        private void ClearShields()
-        {
-            if (Shields is not null)
-            {
-                foreach (var shield in Shields)
-                {
-                    shield.Image = null;
-                }
             }
         }
 
@@ -183,9 +177,25 @@ namespace Fighting.Controls
             }
         }
 
-        private void PictureBox_MouseDown(object sender, MouseEventArgs e)
+        private void ClearShields()
         {
-            CharacterMouseDown?.Invoke(sender, e);
+            if (Shields is not null)
+            {
+                foreach (var shield in Shields)
+                {
+                    shield.Image = null;
+                }
+            }
+        }
+
+        private bool IsShield(PictureBox picBox)
+        {
+            if (Shields is not null)
+            {
+                int partNum = int.Parse(picBox.Tag!.ToString()!);
+                return Shields[partNum].Image is not null;
+            }
+            return false;
         }
 
         public async Task SetDamageColor(PictureBox picBox)
@@ -223,16 +233,6 @@ namespace Fighting.Controls
                 await Task.Delay(20);
             }
             Padding = padding;
-        }
-
-        private bool IsShield(PictureBox picBox)
-        {
-            if (Shields is not null)
-            {
-                int partNum = int.Parse(picBox.Tag!.ToString()!);
-                return Shields[partNum].Image is not null;
-            }
-            return false;
         }
 
         public async Task GetDamage(PictureBox picBox)
