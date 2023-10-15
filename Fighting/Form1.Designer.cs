@@ -32,7 +32,6 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.None;
             BackgroundImage = Properties.Resources.Background;
             BackgroundImageLayout = ImageLayout.Zoom;
@@ -41,7 +40,6 @@
             MaximizeBox = false;
             Name = "Form1";
             Text = "Form1";
-            Load += Form1_Load;
             ResumeLayout(false);
         }
 

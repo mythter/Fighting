@@ -14,12 +14,6 @@ namespace Fighting
         {
             InitializeComponent();
 
-            FirstCharacter = null!;
-            SecondCharacter = null!;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
             #region First character
             Character first = new Character
             {
