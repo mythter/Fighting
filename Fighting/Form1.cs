@@ -33,6 +33,9 @@ namespace Fighting
                 Type = Type.Hero,
             };
 
+            FirstCharacter.HealthChangedEvent += SetHealthValue;
+            FirstCharacter.GotKilledEvent += CharacterKilled;
+
             Controls.Add(FirstCharacter);
             #endregion
 
@@ -55,26 +58,13 @@ namespace Fighting
                 Type = Type.Enemy,
             };
 
-            SecondCharacter.CharacterMouseClick += async (s, e) =>
-            {
-                Random rand = new Random();
-                PictureBox picBox = rand.Next(3) switch
-                {
-                    0 => FirstCharacter.HeadPictureBox,
-                    1 => FirstCharacter.BodyPictureBox,
-                    2 => FirstCharacter.LegsPictureBox,
-                    _ => throw new ArgumentException(""),
-                };
-                await FirstCharacter.GetDamage(picBox);
-            };
-
+            SecondCharacter.GotDamagedEvent += SecondCharacter_Click;
+            SecondCharacter.HealthChangedEvent += SetHealthValue;
+            SecondCharacter.GotKilledEvent += CharacterKilled;
 
             Controls.Add(SecondCharacter);
 
             #endregion
-
-            FirstCharacter.GotDamagedEvent += SetHealthValue;
-            SecondCharacter.GotDamagedEvent += SetHealthValue;
 
             SetTransperency();
         }
@@ -128,6 +118,28 @@ namespace Fighting
                 HealthSecond.Location = pos;
                 HealthSecond.BackColor = Color.Transparent;
             }
+        }
+
+        private async void SecondCharacter_Click(object? sender, EventArgs e)
+        {
+            if (SecondCharacter.Health > 0)
+            {
+                Random rand = new Random();
+                PictureBox picBox = rand.Next(3) switch
+                {
+                    0 => FirstCharacter.HeadPictureBox,
+                    1 => FirstCharacter.BodyPictureBox,
+                    2 => FirstCharacter.LegsPictureBox,
+                    _ => throw new ArgumentException("Part number does not exist."),
+                };
+                await FirstCharacter.MakeDamage(picBox);
+            }
+        }
+
+        private void CharacterKilled(object? sender, EventArgs e)
+        {
+            FirstCharacter.Health = 100;
+            SecondCharacter.Health = 100;
         }
     }
 }

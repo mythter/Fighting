@@ -100,6 +100,7 @@ namespace Fighting.Controls
                 {
                     _health = value;
                 }
+                HealthChangedEvent?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -110,6 +111,8 @@ namespace Fighting.Controls
         public event EventHandler? CharacterMouseEnter;
         public event EventHandler? CharacterMouseClick;
         public event EventHandler? GotDamagedEvent;
+        public event EventHandler? GotKilledEvent;
+        public event EventHandler? HealthChangedEvent;
 
         private void SetTransperency()
         {
@@ -175,7 +178,7 @@ namespace Fighting.Controls
             }
             else if (Type == Type.Enemy)
             {
-                await GetDamage((PictureBox)sender!);
+                await MakeDamage((PictureBox)sender!);
             }
             CharacterMouseClick?.Invoke(sender, e);
         }
@@ -269,33 +272,33 @@ namespace Fighting.Controls
             Padding = padding;
         }
 
-        public async Task GetDamage(PictureBox picBox)
+        public async Task MakeDamage(PictureBox picBox)
         {
-            if (_isAnimating)
+            if (_isAnimating || Health == 0)
                 return;
 
-            float damage = 0;
+            float damage;
             int partNum = int.Parse(picBox.Tag!.ToString()!);
-            switch (partNum)
+            damage = partNum switch
             {
-                case 0:
-                    damage = (float)new Random().NextDouble(20, 30);
-                    break;
-                case 1:
-                    damage = (float)new Random().NextDouble(10, 20);
-                    break;
-                case 2:
-                    damage = (float)new Random().NextDouble(15, 25);
-                    break;
-            }
+                0 => (float)new Random().NextDouble(20, 30),
+                1 => (float)new Random().NextDouble(10, 20),
+                2 => (float)new Random().NextDouble(15, 25),
+                _ => throw new ArgumentException("Part number does not exist.")
+            };
 
             if (IsShield(partNum))
             {
-                damage *= (float)new Random().NextDouble(50, 75) / 100f;
+                damage *= partNum switch
+                {
+                    0 => 0.75f,
+                    1 => 0.25f,
+                    2 => 0.5f,
+                    _ => throw new ArgumentException("Part number does not exist.")
+                };
             }
 
             Health -= damage;
-            GotDamagedEvent?.Invoke(this, EventArgs.Empty);
 
             _isAnimating = true;
             await Task.WhenAll(
@@ -304,6 +307,15 @@ namespace Fighting.Controls
                  );
             await Task.Delay(500);
             _isAnimating = false;
+
+            if (Health == 0)
+            {
+                GotKilledEvent?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                GotDamagedEvent?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 
