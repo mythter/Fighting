@@ -73,22 +73,22 @@ namespace Fighting
 
             #endregion
 
-            FirstCharacter.GettingDamage += SetHealthValue;
-            SecondCharacter.GettingDamage += SetHealthValue;
+            FirstCharacter.GotDamagedEvent += SetHealthValue;
+            SecondCharacter.GotDamagedEvent += SetHealthValue;
 
             SetTransperency();
         }
 
-        private void SetHealthValue(object? sender, DamageEventArgs e)
+        private void SetHealthValue(object? sender, EventArgs e)
         {
             CharacterControl character = (CharacterControl)sender!;
             if (character.Side == Side.Left)
             {
-                HealthFirst.Value -= e.DamageValue;
+                HealthFirst.Value = character.Health;
             }
             else
             {
-                HealthSecond.Value -= e.DamageValue;
+                HealthSecond.Value = character.Health;
             }
         }
 

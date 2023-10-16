@@ -4,7 +4,6 @@ using Type = Fighting.Enums.Type;
 
 namespace Fighting.Controls
 {
-    public delegate void DamageEventHandler(object sender, DamageEventArgs args);
     public partial class CharacterControl : UserControl
     {
         private readonly Color _damageColor = Color.Red;
@@ -83,13 +82,34 @@ namespace Fighting.Controls
         }
         public Type Type { get; set; }
 
+        private float _health = 100f;
+        public float Health
+        {
+            get => _health;
+            set
+            {
+                if (value > 100)
+                {
+                    _health = value;
+                }
+                else if (value < 0)
+                {
+                    _health = 0;
+                }
+                else
+                {
+                    _health = value;
+                }
+            }
+        }
+
         private bool _isAnimating;
 
         public PictureBox[]? Shields { get; private set; }
 
         public event EventHandler? CharacterMouseEnter;
         public event EventHandler? CharacterMouseClick;
-        public event DamageEventHandler? GettingDamage;
+        public event EventHandler? GotDamagedEvent;
 
         private void SetTransperency()
         {
@@ -199,6 +219,19 @@ namespace Fighting.Controls
             return false;
         }
 
+        public bool IsShield(int partNum)
+        {
+            if (partNum > 2 || partNum < 0)
+                return false;
+
+            if (Shields is not null)
+            {
+                return Shields[partNum].Image is not null;
+            }
+
+            return false;
+        }
+
         public async Task SetDamageColor(PictureBox picBox)
         {
             if (IsShield(picBox))
@@ -241,9 +274,28 @@ namespace Fighting.Controls
             if (_isAnimating)
                 return;
 
-            // TODO: add damage value to event args
-            float damage = (float)(new Random().NextDouble() * 20);
-            GettingDamage?.Invoke(this, new DamageEventArgs(damage));
+            float damage = 0;
+            int partNum = int.Parse(picBox.Tag!.ToString()!);
+            switch (partNum)
+            {
+                case 0:
+                    damage = (float)new Random().NextDouble(20, 30);
+                    break;
+                case 1:
+                    damage = (float)new Random().NextDouble(10, 20);
+                    break;
+                case 2:
+                    damage = (float)new Random().NextDouble(15, 25);
+                    break;
+            }
+
+            if (IsShield(partNum))
+            {
+                damage *= (float)new Random().NextDouble(50, 75) / 100f;
+            }
+
+            Health -= damage;
+            GotDamagedEvent?.Invoke(this, EventArgs.Empty);
 
             _isAnimating = true;
             await Task.WhenAll(
@@ -255,15 +307,14 @@ namespace Fighting.Controls
         }
     }
 
-    public class DamageEventArgs : EventArgs
+    public static class RandomExtensions
     {
-        public DamageEventArgs(float damageValue)
+        public static double NextDouble(
+            this Random random,
+            double minValue,
+            double maxValue)
         {
-            DamageValue = damageValue;
+            return random.NextDouble() * (maxValue - minValue) + minValue;
         }
-
-        public float DamageValue { get; private set; }
-
     }
-
 }
