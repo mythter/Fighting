@@ -68,11 +68,28 @@ namespace Fighting
                 await FirstCharacter.GetDamage(picBox);
             };
 
+
             Controls.Add(SecondCharacter);
 
             #endregion
 
+            FirstCharacter.GettingDamage += SetHealthValue;
+            SecondCharacter.GettingDamage += SetHealthValue;
+
             SetTransperency();
+        }
+
+        private void SetHealthValue(object? sender, DamageEventArgs e)
+        {
+            CharacterControl character = (CharacterControl)sender!;
+            if (character.Side == Side.Left)
+            {
+                HealthFirst.Value -= e.DamageValue;
+            }
+            else
+            {
+                HealthSecond.Value -= e.DamageValue;
+            }
         }
 
         private void SetTransperency()

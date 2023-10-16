@@ -4,10 +4,14 @@ using Type = Fighting.Enums.Type;
 
 namespace Fighting.Controls
 {
+    public delegate void DamageEventHandler(object sender, DamageEventArgs args);
     public partial class CharacterControl : UserControl
     {
-        Color damage = Color.Red;
-        Color defense = Color.Green;
+        private readonly Color _damageColor = Color.Red;
+        private readonly Color _defenseColor = Color.Green;
+        private readonly Color _heroEnterColor = Color.FromArgb(80, 39, 245, 75);
+        private readonly Color _enemyEnterColor = Color.FromArgb(80, 245, 39, 42);
+
         public CharacterControl(Character? character)
         {
             InitializeComponent();
@@ -15,24 +19,24 @@ namespace Fighting.Controls
 
             if (character is not null)
             {
-                Head = character.Head!;
-                Body = character.Body!;
-                Legs = character.Legs!;
+                Head = character.Head;
+                Body = character.Body;
+                Legs = character.Legs;
                 Type = character.Type;
             }
         }
 
-        public Image Head
+        public Image? Head
         {
             get => HeadPictureBox.Image;
             set => HeadPictureBox.Image = value;
         }
-        public Image Body
+        public Image? Body
         {
             get => BodyPictureBox.Image;
             set => BodyPictureBox.Image = value;
         }
-        public Image Legs
+        public Image? Legs
         {
             get => LegsPictureBox.Image;
             set => LegsPictureBox.Image = value;
@@ -79,11 +83,13 @@ namespace Fighting.Controls
         }
         public Type Type { get; set; }
 
-        public PictureBox[]? Shields { get; set; }
+        private bool _isAnimating;
+
+        public PictureBox[]? Shields { get; private set; }
 
         public event EventHandler? CharacterMouseEnter;
-        public event EventHandler? CharacterMouseDown;
         public event EventHandler? CharacterMouseClick;
+        public event DamageEventHandler? GettingDamage;
 
         private void SetTransperency()
         {
@@ -119,11 +125,11 @@ namespace Fighting.Controls
         {
             if (Type == Type.Hero)
             {
-                ((PictureBox)sender!).BackColor = Color.FromArgb(80, 39, 245, 75);
+                ((PictureBox)sender!).BackColor = _heroEnterColor;
             }
             else if (Type == Type.Enemy)
             {
-                ((PictureBox)sender!).BackColor = Color.FromArgb(80, 245, 39, 42);
+                ((PictureBox)sender!).BackColor = _enemyEnterColor;
             }
 
             CharacterMouseEnter?.Invoke(sender, e);
@@ -132,15 +138,10 @@ namespace Fighting.Controls
         private void PictureBox_MouseLeave(object sender, EventArgs e)
         {
             PictureBox picBox = (PictureBox)sender;
-            if (picBox.BackColor != damage)
+            if (picBox.BackColor != _damageColor)
             {
                 picBox.BackColor = default;
             }
-        }
-
-        private void PictureBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            CharacterMouseDown?.Invoke(sender, e);
         }
 
         private async void PictureBox_Click(object sender, EventArgs e)
@@ -155,8 +156,8 @@ namespace Fighting.Controls
             else if (Type == Type.Enemy)
             {
                 await GetDamage((PictureBox)sender!);
-                CharacterMouseClick?.Invoke(sender, e);
             }
+            CharacterMouseClick?.Invoke(sender, e);
         }
 
         private void SwitchShield(int shieldNumber)
@@ -202,11 +203,11 @@ namespace Fighting.Controls
         {
             if (IsShield(picBox))
             {
-                picBox.BackColor = defense;
+                picBox.BackColor = _defenseColor;
             }
             else
             {
-                picBox.BackColor = damage;
+                picBox.BackColor = _damageColor;
             }
             await Task.Delay(250);
             picBox.BackColor = default;
@@ -237,12 +238,32 @@ namespace Fighting.Controls
 
         public async Task GetDamage(PictureBox picBox)
         {
+            if (_isAnimating)
+                return;
+
+            // TODO: add damage value to event args
+            float damage = (float)(new Random().NextDouble() * 20);
+            GettingDamage?.Invoke(this, new DamageEventArgs(damage));
+
+            _isAnimating = true;
             await Task.WhenAll(
                      SetDamageColor(picBox),
                      AnimateDamage()
                  );
             await Task.Delay(500);
+            _isAnimating = false;
         }
+    }
+
+    public class DamageEventArgs : EventArgs
+    {
+        public DamageEventArgs(float damageValue)
+        {
+            DamageValue = damageValue;
+        }
+
+        public float DamageValue { get; private set; }
+
     }
 
 }

@@ -64,6 +64,11 @@ namespace Fighting.Controls
             }
             set
             {
+                if (value < 0)
+                {
+                    value = 0;
+                }
+
                 TableLayoutPanel.ColumnStyles[0].Width = Reverse ? 100 - value : value;
                 TableLayoutPanel.ColumnStyles[1].Width = Reverse ? value : 100 - value;
             }

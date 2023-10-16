@@ -57,7 +57,6 @@
             HeadPictureBox.TabStop = false;
             HeadPictureBox.Tag = "0";
             HeadPictureBox.Click += PictureBox_Click;
-            HeadPictureBox.MouseDown += PictureBox_MouseDown;
             HeadPictureBox.MouseEnter += PictureBox_MouseEnter;
             HeadPictureBox.MouseLeave += PictureBox_MouseLeave;
             // 
@@ -70,7 +69,6 @@
             BodyPictureBox.TabStop = false;
             BodyPictureBox.Tag = "1";
             BodyPictureBox.Click += PictureBox_Click;
-            BodyPictureBox.MouseDown += PictureBox_MouseDown;
             BodyPictureBox.MouseEnter += PictureBox_MouseEnter;
             BodyPictureBox.MouseLeave += PictureBox_MouseLeave;
             // 
@@ -83,7 +81,6 @@
             LegsPictureBox.TabStop = false;
             LegsPictureBox.Tag = "2";
             LegsPictureBox.Click += PictureBox_Click;
-            LegsPictureBox.MouseDown += PictureBox_MouseDown;
             LegsPictureBox.MouseEnter += PictureBox_MouseEnter;
             LegsPictureBox.MouseLeave += PictureBox_MouseLeave;
             // 

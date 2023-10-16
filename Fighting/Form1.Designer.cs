@@ -44,7 +44,7 @@
             HealthFirst.Reverse = false;
             HealthFirst.Size = new Size(400, 20);
             HealthFirst.TabIndex = 50;
-            HealthFirst.Value = 44F;
+            HealthFirst.Value = 100F;
             // 
             // HealthSecond
             // 
@@ -58,7 +58,7 @@
             HealthSecond.Reverse = true;
             HealthSecond.Size = new Size(400, 20);
             HealthSecond.TabIndex = 1;
-            HealthSecond.Value = 67F;
+            HealthSecond.Value = 100F;
             // 
             // Form1
             // 
