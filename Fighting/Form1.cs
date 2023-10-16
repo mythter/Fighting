@@ -95,6 +95,22 @@ namespace Fighting
                 SecondCharacter.Location = pos;
                 SecondCharacter.BackColor = Color.Transparent;
             }
+            if (HealthFirst?.Parent is not null)
+            {
+                pos = HealthFirst.Parent.PointToScreen(HealthFirst.Location);
+                pos = this.PointToClient(pos);
+                HealthFirst.Parent = this;
+                HealthFirst.Location = pos;
+                HealthFirst.BackColor = Color.Transparent;
+            }
+            if (HealthSecond.Parent is not null)
+            {
+                pos = HealthSecond.Parent.PointToScreen(HealthSecond.Location);
+                pos = this.PointToClient(pos);
+                HealthSecond.Parent = this;
+                HealthSecond.Location = pos;
+                HealthSecond.BackColor = Color.Transparent;
+            }
         }
     }
 }

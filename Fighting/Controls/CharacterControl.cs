@@ -188,7 +188,7 @@ namespace Fighting.Controls
             }
         }
 
-        private bool IsShield(PictureBox picBox)
+        public bool IsShield(PictureBox picBox)
         {
             if (Shields is not null)
             {
