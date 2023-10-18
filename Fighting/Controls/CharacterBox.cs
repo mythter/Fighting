@@ -4,14 +4,13 @@ namespace Fighting.Controls
 {
     public partial class CharacterBox : UserControl
     {
-        Character? character;
         public CharacterBox(Character? character)
         {
             InitializeComponent();
 
             if (character is not null)
             {
-                this.character = character;
+                Character = character;
                 Art = character.Image;
                 CharacterName = character.Name;
             }
@@ -29,9 +28,6 @@ namespace Fighting.Controls
             set => CharacterNameLabel.Text = value;
         }
 
-        public Character? ChooseCharacter(object sender, EventArgs e)
-        {
-            return character;
-        }
+        public Character? Character { get; set; }
     }
 }
