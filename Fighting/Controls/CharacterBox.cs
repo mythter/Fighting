@@ -4,22 +4,22 @@ namespace Fighting.Controls
 {
     public partial class CharacterBox : UserControl
     {
-        public CharacterBox(Character? character)
+        public CharacterBox(Character character)
         {
             InitializeComponent();
+            WireAllControls(this);
 
-            if (character is not null)
-            {
-                Character = character;
-                CharacterImage = character.Image;
-                CharacterName = character.Name;
-            }
+            ArgumentNullException.ThrowIfNull(character);
+
+            Character = character;
+            CharacterImage = character.Image;
+            CharacterName = character.Name;
         }
 
         public Image? CharacterImage
         {
-            get => CharacterPictureBox.Image;
-            set => CharacterPictureBox.Image = value;
+            get => CharacterPictureBox.BackgroundImage;
+            set => CharacterPictureBox.BackgroundImage = value;
         }
 
         public string? CharacterName
@@ -28,6 +28,23 @@ namespace Fighting.Controls
             set => CharacterNameLabel.Text = value;
         }
 
-        public Character? Character { get; set; }
+        public Character Character { get; set; }
+
+        private void WireAllControls(Control control)
+        {
+            foreach (Control c in control.Controls)
+            {
+                c.Click += Control_Click;
+                if (c.HasChildren)
+                {
+                    WireAllControls(c);
+                }
+            }
+        }
+
+        private void Control_Click(object? sender, EventArgs e)
+        {
+            this.InvokeOnClick(this, EventArgs.Empty);
+        }
     }
 }

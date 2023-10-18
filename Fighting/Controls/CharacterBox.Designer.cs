@@ -35,19 +35,21 @@
             // 
             // CharacterNameLabel
             // 
-            CharacterNameLabel.AutoSize = true;
             CharacterNameLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            CharacterNameLabel.Location = new Point(70, 185);
+            CharacterNameLabel.Location = new Point(0, 182);
+            CharacterNameLabel.Margin = new Padding(0);
             CharacterNameLabel.Name = "CharacterNameLabel";
-            CharacterNameLabel.Size = new Size(68, 28);
+            CharacterNameLabel.Size = new Size(210, 33);
             CharacterNameLabel.TabIndex = 0;
             CharacterNameLabel.Text = "Name";
             CharacterNameLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // CharacterPictureBox
             // 
+            CharacterPictureBox.BackColor = SystemColors.Control;
             CharacterPictureBox.BackgroundImageLayout = ImageLayout.Zoom;
             CharacterPictureBox.Location = new Point(0, 0);
+            CharacterPictureBox.Margin = new Padding(0);
             CharacterPictureBox.Name = "CharacterPictureBox";
             CharacterPictureBox.Size = new Size(210, 182);
             CharacterPictureBox.TabIndex = 1;
@@ -63,7 +65,6 @@
             Size = new Size(210, 215);
             ((System.ComponentModel.ISupportInitialize)CharacterPictureBox).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
