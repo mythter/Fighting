@@ -277,8 +277,34 @@ namespace Fighting.Controls
             if (_isAnimating || Health == 0)
                 return;
 
-            float damage;
+            // Damage calculation depending on the part number.
+            float damage = CalculateDamage(picBox);
+            Health -= damage;
+
+            // Damage animation.
+            _isAnimating = true;
+            await Task.WhenAll(
+                     SetDamageColor(picBox),
+                     AnimateDamage()
+                 );
+            await Task.Delay(500);
+            _isAnimating = false;
+
+            // Call GotKilled event if health is 0.
+            if (Health == 0)
+            {
+                GotKilledEvent?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                GotDamagedEvent?.Invoke(this, EventArgs.Empty);
+            }
+        }
+
+        private float CalculateDamage(PictureBox picBox)
+        {
             int partNum = int.Parse(picBox.Tag!.ToString()!);
+            float damage;
             damage = partNum switch
             {
                 0 => (float)new Random().NextDouble(20, 30),
@@ -298,24 +324,7 @@ namespace Fighting.Controls
                 };
             }
 
-            Health -= damage;
-
-            _isAnimating = true;
-            await Task.WhenAll(
-                     SetDamageColor(picBox),
-                     AnimateDamage()
-                 );
-            await Task.Delay(500);
-            _isAnimating = false;
-
-            if (Health == 0)
-            {
-                GotKilledEvent?.Invoke(this, EventArgs.Empty);
-            }
-            else
-            {
-                GotDamagedEvent?.Invoke(this, EventArgs.Empty);
-            }
+            return damage;
         }
     }
 
