@@ -46,6 +46,7 @@
             // 
             // CharacterPictureBox
             // 
+            CharacterPictureBox.BackgroundImageLayout = ImageLayout.Zoom;
             CharacterPictureBox.Location = new Point(0, 0);
             CharacterPictureBox.Name = "CharacterPictureBox";
             CharacterPictureBox.Size = new Size(210, 182);
