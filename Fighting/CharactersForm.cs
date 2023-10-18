@@ -24,6 +24,7 @@ namespace Fighting
             AutoValidate = AutoValidate.EnableAllowFocusChange;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             StartPosition = FormStartPosition.CenterScreen;
+            MaximizeBox = false;
 
             Character[] characters = CharacterGenerator.GenerateCharacters(Side.Left);
 
