@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>Assets\Images\Icon\icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -25,6 +26,10 @@
     <None Remove="Resources\Ryu_right_2_img.png" />
     <None Remove="Resources\Ryu_right_3.gif" />
     <None Remove="Resources\Ryu_right_3_img.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\Images\Icon\icon.ico" />
   </ItemGroup>
 
   <ItemGroup>

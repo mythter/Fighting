@@ -1,6 +1,6 @@
 ﻿namespace Fighting
 {
-    partial class CharacterScreen
+    partial class CharactersForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,28 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            SuspendLayout();
-            // 
-            // characterBox1
-            // 
-            characterBox1.Location = new Point(90, 12);
-            characterBox1.Name = "characterBox1";
-            characterBox1.Size = new Size(262, 269);
-            characterBox1.TabIndex = 0;
-            // 
-            // CharacterScreen
-            // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(characterBox1);
-            Name = "CharacterScreen";
-            Text = "CharacterScreen";
-            ResumeLayout(false);
         }
 
         #endregion
-
-        private Controls.CharacterBox characterBox1;
     }
 }
