@@ -88,9 +88,11 @@ namespace Fighting.Helpers
         public static Character GenerateRandomCharacterExcept(string name, Side side)
         {
             Character character;
+            Character[] characters = GenerateCharacters(side);
+            Random rand = new Random();
             do
             {
-                character = GenerateCharacters(side)[new Random().Next(Count)];
+                character = characters[rand.Next(Count)];
             }
             while (character.Name == name);
 
