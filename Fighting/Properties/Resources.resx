@@ -130,6 +130,15 @@
   <data name="Balrog_left_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Images\Characters\Barlog\Balrog_left_3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Balrog_right_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\Barlog\Balrog_right_1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Balrog_right_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\Barlog\Balrog_right_2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Balrog_right_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\Barlog\Balrog_right_3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Barlog_art" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Images\Characters\Barlog\Barlog_art.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -151,6 +160,15 @@
   <data name="Cammy_left_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Images\Characters\Cammy\Cammy_left_3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Cammy_right_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\Cammy\Cammy_right_1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cammy_right_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\Cammy\Cammy_right_2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cammy_right_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\Cammy\Cammy_right_3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ChunLi_art" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Images\Characters\ChunLi\ChunLi_art.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -162,6 +180,15 @@
   </data>
   <data name="ChunLi_left_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Images\Characters\ChunLi\ChunLi_left_3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ChunLi_right_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\ChunLi\ChunLi_right_1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ChunLi_right_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\ChunLi\ChunLi_right_2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ChunLi_right_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\ChunLi\ChunLi_right_3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Guile_art" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Images\Characters\Guile\Guile_art.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,6 +202,15 @@
   <data name="Guile_left_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Images\Characters\Guile\Guile_left_3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Guile_right_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\Guile\Guile_right_1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Guile_right_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\Guile\Guile_right_2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Guile_right_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\Guile\Guile_right_3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Juri_art" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Images\Characters\Juri\Juri_art.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -186,6 +222,15 @@
   </data>
   <data name="Juri_left_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Images\Characters\Juri\Juri_left_3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Juri_right_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\Juri\Juri_right_1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Juri_right_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\Juri\Juri_right_2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Juri_right_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\Juri\Juri_right_3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ken_art" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Images\Characters\Ken\Ken_art.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -213,6 +258,15 @@
   </data>
   <data name="Ken_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ken_right.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ken_right_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\Ken\Ken_right_1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ken_right_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\Ken\Ken_right_2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ken_right_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\Ken\Ken_right_3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ryu_art" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Images\Characters\Ryu\Ryu_art.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -270,5 +324,14 @@
   </data>
   <data name="Sakura_left_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Images\Characters\Sakura\Sakura_left_3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sakura_right_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\Sakura\Sakura_right_1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sakura_right_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\Sakura\Sakura_right_2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sakura_right_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Images\Characters\Sakura\Sakura_right_3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

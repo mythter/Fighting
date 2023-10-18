@@ -103,6 +103,36 @@ namespace Fighting.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Balrog_right_1 {
+            get {
+                object obj = ResourceManager.GetObject("Balrog_right_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Balrog_right_2 {
+            get {
+                object obj = ResourceManager.GetObject("Balrog_right_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Balrog_right_3 {
+            get {
+                object obj = ResourceManager.GetObject("Balrog_right_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Barlog_art {
             get {
                 object obj = ResourceManager.GetObject("Barlog_art", resourceCulture);
@@ -173,6 +203,36 @@ namespace Fighting.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cammy_right_1 {
+            get {
+                object obj = ResourceManager.GetObject("Cammy_right_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cammy_right_2 {
+            get {
+                object obj = ResourceManager.GetObject("Cammy_right_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cammy_right_3 {
+            get {
+                object obj = ResourceManager.GetObject("Cammy_right_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ChunLi_art {
             get {
                 object obj = ResourceManager.GetObject("ChunLi_art", resourceCulture);
@@ -206,6 +266,36 @@ namespace Fighting.Properties {
         internal static System.Drawing.Bitmap ChunLi_left_3 {
             get {
                 object obj = ResourceManager.GetObject("ChunLi_left_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChunLi_right_1 {
+            get {
+                object obj = ResourceManager.GetObject("ChunLi_right_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChunLi_right_2 {
+            get {
+                object obj = ResourceManager.GetObject("ChunLi_right_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChunLi_right_3 {
+            get {
+                object obj = ResourceManager.GetObject("ChunLi_right_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,6 +343,36 @@ namespace Fighting.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Guile_right_1 {
+            get {
+                object obj = ResourceManager.GetObject("Guile_right_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Guile_right_2 {
+            get {
+                object obj = ResourceManager.GetObject("Guile_right_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Guile_right_3 {
+            get {
+                object obj = ResourceManager.GetObject("Guile_right_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Juri_art {
             get {
                 object obj = ResourceManager.GetObject("Juri_art", resourceCulture);
@@ -286,6 +406,36 @@ namespace Fighting.Properties {
         internal static System.Drawing.Bitmap Juri_left_3 {
             get {
                 object obj = ResourceManager.GetObject("Juri_left_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Juri_right_1 {
+            get {
+                object obj = ResourceManager.GetObject("Juri_right_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Juri_right_2 {
+            get {
+                object obj = ResourceManager.GetObject("Juri_right_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Juri_right_3 {
+            get {
+                object obj = ResourceManager.GetObject("Juri_right_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -376,6 +526,36 @@ namespace Fighting.Properties {
         internal static System.Drawing.Bitmap Ken_right {
             get {
                 object obj = ResourceManager.GetObject("Ken_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ken_right_1 {
+            get {
+                object obj = ResourceManager.GetObject("Ken_right_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ken_right_2 {
+            get {
+                object obj = ResourceManager.GetObject("Ken_right_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ken_right_3 {
+            get {
+                object obj = ResourceManager.GetObject("Ken_right_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -566,6 +746,36 @@ namespace Fighting.Properties {
         internal static System.Drawing.Bitmap Sakura_left_3 {
             get {
                 object obj = ResourceManager.GetObject("Sakura_left_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sakura_right_1 {
+            get {
+                object obj = ResourceManager.GetObject("Sakura_right_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sakura_right_2 {
+            get {
+                object obj = ResourceManager.GetObject("Sakura_right_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sakura_right_3 {
+            get {
+                object obj = ResourceManager.GetObject("Sakura_right_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
