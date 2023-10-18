@@ -11,12 +11,12 @@ namespace Fighting.Controls
             if (character is not null)
             {
                 Character = character;
-                Art = character.Image;
+                CharacterImage = character.Image;
                 CharacterName = character.Name;
             }
         }
 
-        public Image? Art
+        public Image? CharacterImage
         {
             get => CharacterPictureBox.Image;
             set => CharacterPictureBox.Image = value;
