@@ -28,17 +28,41 @@ namespace Fighting.Controls
         public Image? Head
         {
             get => HeadPictureBox.Image;
-            set => HeadPictureBox.Image = value;
+            set
+            {
+                if (value is not null)
+                {
+                    HeadPictureBox.Width = value.Width;
+                    ShieldRightPicBox1.Location = new Point(35 + HeadPictureBox.Width, ShieldRightPicBox1.Location.Y);
+                }
+                HeadPictureBox.Image = value;
+            }
         }
         public Image? Body
         {
             get => BodyPictureBox.Image;
-            set => BodyPictureBox.Image = value;
+            set
+            {
+                if (value is not null)
+                {
+                    BodyPictureBox.Width = value.Width;
+                    ShieldRightPicBox2.Location = new Point(35 + BodyPictureBox.Width, ShieldRightPicBox2.Location.Y);
+                }
+                BodyPictureBox.Image = value;
+            }
         }
         public Image? Legs
         {
             get => LegsPictureBox.Image;
-            set => LegsPictureBox.Image = value;
+            set
+            {
+                if (value is not null)
+                {
+                    LegsPictureBox.Width = value.Width;
+                    ShieldRightPicBox3.Location = new Point(35 + LegsPictureBox.Width, ShieldRightPicBox3.Location.Y);
+                }
+                LegsPictureBox.Image = value;
+            }
         }
 
         private Side _side;

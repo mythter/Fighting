@@ -52,7 +52,7 @@
             // 
             HeadPictureBox.Location = new Point(35, 0);
             HeadPictureBox.Name = "HeadPictureBox";
-            HeadPictureBox.Size = new Size(212, 105);
+            HeadPictureBox.Size = new Size(220, 105);
             HeadPictureBox.TabIndex = 0;
             HeadPictureBox.TabStop = false;
             HeadPictureBox.Tag = "0";
@@ -64,7 +64,7 @@
             // 
             BodyPictureBox.Location = new Point(35, 105);
             BodyPictureBox.Name = "BodyPictureBox";
-            BodyPictureBox.Size = new Size(212, 105);
+            BodyPictureBox.Size = new Size(220, 105);
             BodyPictureBox.TabIndex = 1;
             BodyPictureBox.TabStop = false;
             BodyPictureBox.Tag = "1";
@@ -76,7 +76,7 @@
             // 
             LegsPictureBox.Location = new Point(35, 210);
             LegsPictureBox.Name = "LegsPictureBox";
-            LegsPictureBox.Size = new Size(212, 105);
+            LegsPictureBox.Size = new Size(220, 105);
             LegsPictureBox.TabIndex = 2;
             LegsPictureBox.TabStop = false;
             LegsPictureBox.Tag = "2";
@@ -86,7 +86,7 @@
             // 
             // ShieldRightPicBox1
             // 
-            ShieldRightPicBox1.Location = new Point(246, 0);
+            ShieldRightPicBox1.Location = new Point(255, 0);
             ShieldRightPicBox1.Name = "ShieldRightPicBox1";
             ShieldRightPicBox1.Size = new Size(35, 105);
             ShieldRightPicBox1.TabIndex = 3;
@@ -95,7 +95,7 @@
             // 
             // ShieldRightPicBox2
             // 
-            ShieldRightPicBox2.Location = new Point(246, 105);
+            ShieldRightPicBox2.Location = new Point(255, 105);
             ShieldRightPicBox2.Name = "ShieldRightPicBox2";
             ShieldRightPicBox2.Size = new Size(35, 105);
             ShieldRightPicBox2.TabIndex = 4;
@@ -104,7 +104,7 @@
             // 
             // ShieldRightPicBox3
             // 
-            ShieldRightPicBox3.Location = new Point(246, 210);
+            ShieldRightPicBox3.Location = new Point(255, 210);
             ShieldRightPicBox3.Name = "ShieldRightPicBox3";
             ShieldRightPicBox3.Size = new Size(35, 105);
             ShieldRightPicBox3.TabIndex = 5;
@@ -153,7 +153,7 @@
             Controls.Add(BodyPictureBox);
             Controls.Add(HeadPictureBox);
             Name = "CharacterControl";
-            Size = new Size(281, 315);
+            Size = new Size(290, 315);
             ((System.ComponentModel.ISupportInitialize)HeadPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)BodyPictureBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)LegsPictureBox).EndInit();
