@@ -1,6 +1,5 @@
 ﻿using Fighting.Enums;
 using Fighting.Models;
-using System.Reflection;
 
 namespace Fighting.Helpers
 {

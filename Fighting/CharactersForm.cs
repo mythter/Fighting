@@ -2,8 +2,6 @@
 using Fighting.Enums;
 using Fighting.Helpers;
 using Fighting.Models;
-using Fighting.Properties;
-using System.Drawing;
 
 namespace Fighting
 {
