@@ -1,20 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Fighting.Models;
 
 namespace Fighting.Controls
 {
     public partial class CharacterBox : UserControl
     {
-        public CharacterBox()
+        Character character = new Character();
+        public CharacterBox(Character? character)
         {
             InitializeComponent();
+
+            if (character is not null)
+            {
+                this.character = character;
+                Art = character.Image;
+                Name = character.Name;
+            }
+        }
+
+        public Image? Art
+        {
+            set => CharacterPictureBox.Image = value;
+        }
+
+        public string? Name
+        {
+            set => CharacterNameLabel.Text = value;
+        }
+
+        public Character ChooseCharacter(object sender, EventArgs e)
+        {
+            return character;
         }
     }
 }
