@@ -1,33 +1,33 @@
 using Fighting.Controls;
 using Fighting.Enums;
+using Fighting.Helpers;
 using Fighting.Models;
 using Type = Fighting.Enums.Type;
 
 namespace Fighting
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         CharacterControl FirstCharacter;
         CharacterControl SecondCharacter;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
 
+            CharactersForm charactersForm = new CharactersForm();
+            charactersForm.ShowDialog();
+
             #region First character
-            Character first = new Character
-            {
-                Name = "Ken",
-                Head = Properties.Resources.Ken_left_1,
-                Body = Properties.Resources.Ken_left_2,
-                Legs = Properties.Resources.Ken_left_3,
-            };
+
+            Character first = charactersForm.ChosenCharacter ?? CharacterGenerator.GenerateRandomCharacter(Side.Left);
+
             FirstCharacter = new CharacterControl(first)
             {
                 BackColor = SystemColors.Control,
-                Location = new Point(80, 135),
+                Location = new Point(60, 135),
                 Name = "FirstCharacter",
-                Size = new Size(281, 338),
+                Size = new Size(first.Head!.Width + 70, 338),
                 TabIndex = 0,
                 Side = Side.Left,
                 Type = Type.Hero,
@@ -40,19 +40,14 @@ namespace Fighting
             #endregion
 
             #region Second character
-            Character second = new Character
-            {
-                Name = "Ryu",
-                Head = Properties.Resources.Ryu_right_1,
-                Body = Properties.Resources.Ryu_right_2,
-                Legs = Properties.Resources.Ryu_right_3,
-            };
+
+            Character second = CharacterGenerator.GenerateRandomCharacterExcept(first.Name, Side.Right);
             SecondCharacter = new CharacterControl(second)
             {
                 BackColor = SystemColors.Control,
                 Location = new Point(580, 135),
                 Name = "SecondCharacter",
-                Size = new Size(246, 338),
+                Size = new Size(second.Head!.Width + 70, 338),
                 TabIndex = 1,
                 Side = Side.Right,
                 Type = Type.Enemy,

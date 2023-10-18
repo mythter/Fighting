@@ -1,6 +1,6 @@
 ﻿namespace Fighting
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -80,8 +80,5 @@
         private Controls.CustomBar HealthSecond;
 
         #endregion
-
-        //private Controls.CharacterControl FirstCharacter;
-        //private Controls.CharacterControl SecondCharacter;
     }
 }
