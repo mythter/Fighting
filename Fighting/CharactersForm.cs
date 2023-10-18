@@ -15,7 +15,7 @@ namespace Fighting
 
             int count = CharacterGenerator.Count;
 
-            // Form initialization
+            #region Form initialization
             Width = 210 * count / 2 + 18;
             Height = 215 * count / (count / 2) + 47;
             Text = "Choose character";
@@ -24,7 +24,8 @@ namespace Fighting
             StartPosition = FormStartPosition.CenterScreen;
             MaximizeBox = false;
             AutoScaleMode = AutoScaleMode.None;
-            Icon = Properties.Resources.icon;
+            Icon = Properties.Resources.icon; 
+            #endregion
 
             Character[] characters = CharacterGenerator.GenerateCharacters(Side.Left);
 

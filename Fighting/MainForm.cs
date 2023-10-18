@@ -133,8 +133,10 @@ namespace Fighting
 
         private void CharacterKilled(object? sender, EventArgs e)
         {
-            FirstCharacter.Health = 100;
-            SecondCharacter.Health = 100;
+            //FirstCharacter.Health = 100;
+            //SecondCharacter.Health = 100;
+            Application.Restart();
+            Environment.Exit(0);
         }
     }
 }
