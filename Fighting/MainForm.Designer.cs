@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             HealthFirst = new Controls.CustomBar();
             HealthSecond = new Controls.CustomBar();
             SuspendLayout();
@@ -60,7 +61,7 @@
             HealthSecond.TabIndex = 1;
             HealthSecond.Value = 100F;
             // 
-            // Form1
+            // MainForm
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackgroundImage = Properties.Resources.Background;
@@ -69,10 +70,11 @@
             Controls.Add(HealthFirst);
             Controls.Add(HealthSecond);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
-            Name = "Form1";
+            Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Fighting";
             ResumeLayout(false);
         }
 

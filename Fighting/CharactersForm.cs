@@ -23,6 +23,8 @@ namespace Fighting
             FormBorderStyle = FormBorderStyle.FixedSingle;
             StartPosition = FormStartPosition.CenterScreen;
             MaximizeBox = false;
+            AutoScaleMode = AutoScaleMode.None;
+            Icon = Properties.Resources.icon;
 
             Character[] characters = CharacterGenerator.GenerateCharacters(Side.Left);
 

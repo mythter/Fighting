@@ -28,6 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            SuspendLayout();
+            // 
+            // CharactersForm
+            // 
+            ClientSize = new Size(282, 253);
+            Name = "CharactersForm";
+            ResumeLayout(false);
         }
 
         #endregion
