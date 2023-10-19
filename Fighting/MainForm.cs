@@ -109,7 +109,7 @@ namespace Fighting
                 AutoSize = true,
                 Visible = false,
             };
-            Controls.Add(SecondDamageValueLabel); 
+            Controls.Add(SecondDamageValueLabel);
             #endregion
 
             SetTransperency();
@@ -137,12 +137,12 @@ namespace Fighting
             if (character.Side == Side.Left)
             {
                 label = FirstDamageValueLabel;
-                label.Location = new Point(character.Width + 60, 120);
+                label.Location = new Point(ClientSize.Width / 2 - 100, 120);
             }
             else
             {
                 label = SecondDamageValueLabel;
-                label.Location = new Point(ClientSize.Width - character.Width - 60 - label.Width, 120);
+                label.Location = new Point(ClientSize.Width / 2 + 10, 120);
             }
             label.Text = damageStr;
             label.BringToFront();
