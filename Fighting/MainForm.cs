@@ -159,6 +159,15 @@ namespace Fighting
             BackColor = Color.Black;
             BackgroundImage = null;
 
+            AddFinalLabel();
+            await Task.Delay(1500);
+
+            Application.Restart();
+            Environment.Exit(0);
+        }
+
+        private void AddFinalLabel()
+        {
             var label = new Label
             {
                 TextAlign = ContentAlignment.MiddleCenter,
@@ -177,10 +186,6 @@ namespace Fighting
             {
                 label.Text = "YOU WIN";
             }
-            await Task.Delay(1500);
-
-            Application.Restart();
-            Environment.Exit(0);
         }
 
         private void SwitchVisibility(bool state)

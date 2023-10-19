@@ -1,12 +1,12 @@
 ﻿using Fighting.Enums;
 using Fighting.Models;
-using System.Xml.Linq;
 
 namespace Fighting.Helpers
 {
     public static class CharacterGenerator
     {
         public static int Count { get; } = 8;
+
         private static readonly string[] Names = { "Ken", "Ryu", "Balrog", "Guile", "Cammy", "Chun-Li", "Juri", "Sakura"};
 
         public static Character[] GenerateCharacters(Side side)
