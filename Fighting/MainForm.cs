@@ -156,9 +156,8 @@ namespace Fighting
         {
             for (int i = 0; i < 50; i++)
             {
-
                 label.Location = new Point(label.Location.X, label.Location.Y - 1);
-                await Task.Delay(1);
+                await Task.Delay(10);
             }
         }
 
@@ -202,6 +201,9 @@ namespace Fighting
 
         private async void SecondCharacter_Click(object? sender, EventArgs e)
         {
+            if (FirstCharacter.IsAnimating)
+                return;
+
             if (SecondCharacter.Health > 0)
             {
                 Random rand = new Random();

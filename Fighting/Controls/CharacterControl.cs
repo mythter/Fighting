@@ -130,7 +130,7 @@ namespace Fighting.Controls
             }
         }
 
-        private bool _isAnimating;
+        public bool IsAnimating { get; private set; }
 
         public PictureBox[]? Shields { get; private set; }
 
@@ -300,7 +300,7 @@ namespace Fighting.Controls
 
         public async Task MakeDamage(PictureBox picBox)
         {
-            if (_isAnimating || Health == 0)
+            if (IsAnimating || Health == 0)
                 return;
 
             // Damage calculation depending on the part number.
@@ -308,13 +308,13 @@ namespace Fighting.Controls
             Health -= damage;
 
             // Damage animation.
-            _isAnimating = true;
+            IsAnimating = true;
             await Task.WhenAll(
                      SetDamageColor(picBox),
                      AnimateDamage()
                  );
             await Task.Delay(500);
-            _isAnimating = false;
+            IsAnimating = false;
 
             // Call GotKilled event if health is 0.
             if (Health == 0)
