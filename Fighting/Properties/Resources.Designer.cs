@@ -153,6 +153,16 @@ namespace Fighting.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Balrog_art {
+            get {
+                object obj = ResourceManager.GetObject("Balrog_art", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Balrog_left_1 {
             get {
                 object obj = ResourceManager.GetObject("Balrog_left_1", resourceCulture);
@@ -206,16 +216,6 @@ namespace Fighting.Properties {
         internal static System.Drawing.Bitmap Balrog_right_3 {
             get {
                 object obj = ResourceManager.GetObject("Balrog_right_3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Barlog_art {
-            get {
-                object obj = ResourceManager.GetObject("Barlog_art", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
