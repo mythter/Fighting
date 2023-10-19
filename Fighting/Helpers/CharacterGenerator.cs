@@ -1,81 +1,32 @@
 ﻿using Fighting.Enums;
 using Fighting.Models;
+using System.Xml.Linq;
 
 namespace Fighting.Helpers
 {
     public static class CharacterGenerator
     {
         public static int Count { get; } = 8;
+        private static readonly string[] Names = { "Ken", "Ryu", "Balrog", "Guile", "Cammy", "Chun-Li", "Juri", "Sakura"};
 
         public static Character[] GenerateCharacters(Side side)
         {
             Character[] characters = new Character[Count];
             string s = side.ToString().ToLower();
 
-            characters[0] = new Character
+            for (int i = 0; i < Count; i++)
             {
-                Name = "Ken",
-                Image = Properties.Resources.Ken_art,
-                Head = Properties.Resources.ResourceManager.GetObject($"Ken_{s}_1") as Image,
-                Body = Properties.Resources.ResourceManager.GetObject($"Ken_{s}_2") as Image,
-                Legs = Properties.Resources.ResourceManager.GetObject($"Ken_{s}_3") as Image,
-            };
-            characters[1] = new Character
-            {
-                Name = "Ryu",
-                Image = Properties.Resources.Ryu_art,
-                Head = Properties.Resources.ResourceManager.GetObject($"Ryu_{s}_1") as Image,
-                Body = Properties.Resources.ResourceManager.GetObject($"Ryu_{s}_2") as Image,
-                Legs = Properties.Resources.ResourceManager.GetObject($"Ryu_{s}_3") as Image,
-            };
-            characters[2] = new Character
-            {
-                Name = "Balrog",
-                Image = Properties.Resources.Barlog_art,
-                Head = Properties.Resources.ResourceManager.GetObject($"Balrog_{s}_1") as Image,
-                Body = Properties.Resources.ResourceManager.GetObject($"Balrog_{s}_2") as Image,
-                Legs = Properties.Resources.ResourceManager.GetObject($"Balrog_{s}_3") as Image,
-            };
-            characters[3] = new Character
-            {
-                Name = "Guile",
-                Image = Properties.Resources.Guile_art,
-                Head = Properties.Resources.ResourceManager.GetObject($"Guile_{s}_1") as Image,
-                Body = Properties.Resources.ResourceManager.GetObject($"Guile_{s}_2") as Image,
-                Legs = Properties.Resources.ResourceManager.GetObject($"Guile_{s}_3") as Image,
-            };
-            characters[4] = new Character
-            {
-                Name = "Cammy",
-                Image = Properties.Resources.Cammy_art,
-                Head = Properties.Resources.ResourceManager.GetObject($"Cammy_{s}_1") as Image,
-                Body = Properties.Resources.ResourceManager.GetObject($"Cammy_{s}_2") as Image,
-                Legs = Properties.Resources.ResourceManager.GetObject($"Cammy_{s}_3") as Image,
-            };
-            characters[5] = new Character
-            {
-                Name = "Chun-Li",
-                Image = Properties.Resources.ChunLi_art,
-                Head = Properties.Resources.ResourceManager.GetObject($"ChunLi_{s}_1") as Image,
-                Body = Properties.Resources.ResourceManager.GetObject($"ChunLi_{s}_2") as Image,
-                Legs = Properties.Resources.ResourceManager.GetObject($"ChunLi_{s}_3") as Image,
-            };
-            characters[6] = new Character
-            {
-                Name = "Juri",
-                Image = Properties.Resources.Juri_art,
-                Head = Properties.Resources.ResourceManager.GetObject($"Juri_{s}_1") as Image,
-                Body = Properties.Resources.ResourceManager.GetObject($"Juri_{s}_2") as Image,
-                Legs = Properties.Resources.ResourceManager.GetObject($"Juri_{s}_3") as Image,
-            };
-            characters[7] = new Character
-            {
-                Name = "Sakura",
-                Image = Properties.Resources.Sakura_art,
-                Head = Properties.Resources.ResourceManager.GetObject($"Sakura_{s}_1") as Image,
-                Body = Properties.Resources.ResourceManager.GetObject($"Sakura_{s}_2") as Image,
-                Legs = Properties.Resources.ResourceManager.GetObject($"Sakura_{s}_3") as Image,
-            };
+                string name =  Names[i].Replace("-", "");
+                characters[i] = new Character
+                {
+                    Name = Names[i],
+                    Image = Properties.Resources.ResourceManager.GetObject($"{name}_art") as Image,
+                    Head = Properties.Resources.ResourceManager.GetObject($"{name}_{s}_1") as Image,
+                    Body = Properties.Resources.ResourceManager.GetObject($"{name}_{s}_2") as Image,
+                    Legs = Properties.Resources.ResourceManager.GetObject($"{name}_{s}_3") as Image,
+                };
+            }
+
             return characters;
         }
 
