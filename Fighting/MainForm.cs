@@ -16,14 +16,31 @@ namespace Fighting
         private PrivateFontCollection fonts = new PrivateFontCollection();
 
         Font CustomFont;
+        Font DamageValueFont;
         #endregion
 
         CharacterControl FirstCharacter;
         CharacterControl SecondCharacter;
+        Label FirstDamageValueLabel;
+        Label SecondDamageValueLabel;
 
         public MainForm()
         {
+            #region Custom font
+            byte[] fontData = Properties.Resources.CityBrawlersBoldCaps;
+            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
+            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            uint dummy = 0;
+            fonts.AddMemoryFont(fontPtr, Properties.Resources.CityBrawlersBoldCaps.Length);
+            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.CityBrawlersBoldCaps.Length, IntPtr.Zero, ref dummy);
+            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
+
+            CustomFont = new Font(fonts.Families[0], 70.0F);
+            DamageValueFont = new Font(fonts.Families[0], 28.0F);
+            #endregion
+
             InitializeComponent();
+            DoubleBuffered = true;
 
             CharactersForm charactersForm = new CharactersForm();
             charactersForm.ShowDialog();
@@ -71,22 +88,34 @@ namespace Fighting
 
             #endregion
 
-            SetTransperency();
+            #region Damage labels
+            FirstDamageValueLabel = new Label()
+            {
+                TextAlign = ContentAlignment.MiddleCenter,
+                ForeColor = Color.Red,
+                BackColor = Color.Transparent,
+                Font = DamageValueFont,
+                AutoSize = true,
+                Visible = false,
+            };
+            Controls.Add(FirstDamageValueLabel);
 
-            #region Custom font
-            byte[] fontData = Properties.Resources.CityBrawlersBoldCaps;
-            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
-            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
-            uint dummy = 0;
-            fonts.AddMemoryFont(fontPtr, Properties.Resources.CityBrawlersBoldCaps.Length);
-            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.CityBrawlersBoldCaps.Length, IntPtr.Zero, ref dummy);
-            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
-
-            CustomFont = new Font(fonts.Families[0], 70.0F);
+            SecondDamageValueLabel = new Label()
+            {
+                TextAlign = ContentAlignment.MiddleCenter,
+                ForeColor = Color.Red,
+                BackColor = Color.Transparent,
+                Font = DamageValueFont,
+                AutoSize = true,
+                Visible = false,
+            };
+            Controls.Add(SecondDamageValueLabel); 
             #endregion
+
+            SetTransperency();
         }
 
-        private void SetHealthValue(object? sender, EventArgs e)
+        private async void SetHealthValue(object? sender, HealthChangedEventArgs e)
         {
             CharacterControl character = (CharacterControl)sender!;
             if (character.Side == Side.Left)
@@ -96,6 +125,40 @@ namespace Fighting
             else
             {
                 HealthSecond.Value = character.Health;
+            }
+            await AnimateDamageValue(character, e.Value);
+        }
+
+        private async Task AnimateDamageValue(CharacterControl character, float value)
+        {
+            Label label;
+            string damageStr = value.ToString("+0.##;-0.##");
+
+            if (character.Side == Side.Left)
+            {
+                label = FirstDamageValueLabel;
+                label.Location = new Point(character.Width + 60, 120);
+            }
+            else
+            {
+                label = SecondDamageValueLabel;
+                label.Location = new Point(ClientSize.Width - character.Width - 60 - label.Width, 120);
+            }
+            label.Text = damageStr;
+            label.BringToFront();
+
+            label.Visible = true;
+            await AnimateLabel(label);
+            label.Visible = false;
+        }
+
+        private async Task AnimateLabel(Label label)
+        {
+            for (int i = 0; i < 50; i++)
+            {
+
+                label.Location = new Point(label.Location.X, label.Location.Y - 1);
+                await Task.Delay(1);
             }
         }
 
@@ -194,6 +257,8 @@ namespace Fighting
             SecondCharacter.Visible = state;
             HealthFirst.Visible = state;
             HealthSecond.Visible = state;
+            FirstDamageValueLabel.Visible = false;
+            SecondDamageValueLabel.Visible = false;
         }
     }
 }

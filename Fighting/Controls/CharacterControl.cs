@@ -4,6 +4,7 @@ using Type = Fighting.Enums.Type;
 
 namespace Fighting.Controls
 {
+    public delegate void HealthChangedHandler(object sender, HealthChangedEventArgs e);
     public partial class CharacterControl : UserControl
     {
         private readonly Color _damageColor = Color.Red;
@@ -112,6 +113,7 @@ namespace Fighting.Controls
             get => _health;
             set
             {
+                float diff = value - _health;
                 if (value > 100)
                 {
                     _health = value;
@@ -124,7 +126,7 @@ namespace Fighting.Controls
                 {
                     _health = value;
                 }
-                HealthChangedEvent?.Invoke(this, EventArgs.Empty);
+                HealthChangedEvent?.Invoke(this, new HealthChangedEventArgs(diff));
             }
         }
 
@@ -136,7 +138,7 @@ namespace Fighting.Controls
         public event EventHandler? CharacterMouseClick;
         public event EventHandler? GotDamagedEvent;
         public event EventHandler? GotKilledEvent;
-        public event EventHandler? HealthChangedEvent;
+        public event HealthChangedHandler? HealthChangedEvent;
 
         private void SetTransperency()
         {
@@ -349,6 +351,15 @@ namespace Fighting.Controls
             }
 
             return damage;
+        }
+    }
+
+    public class HealthChangedEventArgs : EventArgs
+    {
+        public float Value { get; private set; }
+        public HealthChangedEventArgs(float value)
+        {
+            Value = value;
         }
     }
 
