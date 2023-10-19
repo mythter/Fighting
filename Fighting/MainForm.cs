@@ -218,18 +218,14 @@ namespace Fighting
 
         private async void CharacterKilled(object? sender, EventArgs e)
         {
-            SwitchVisibility(false);
-            BackColor = Color.Black;
-            BackgroundImage = null;
-
-            AddFinalLabel();
+            ShowFinalLabel();
             await Task.Delay(1500);
 
             Application.Restart();
             Environment.Exit(0);
         }
 
-        private void AddFinalLabel()
+        private void ShowFinalLabel()
         {
             var label = new Label
             {
@@ -237,9 +233,11 @@ namespace Fighting
                 AutoSize = false,
                 Dock = DockStyle.Fill,
                 ForeColor = Color.LightGray,
+                BackColor = Color.Black,
                 Font = CustomFont,
             };
             Controls.Add(label);
+            label.BringToFront();
 
             if (FirstCharacter.Health == 0)
             {
@@ -249,16 +247,6 @@ namespace Fighting
             {
                 label.Text = "YOU WIN";
             }
-        }
-
-        private void SwitchVisibility(bool state)
-        {
-            FirstCharacter.Visible = state;
-            SecondCharacter.Visible = state;
-            HealthFirst.Visible = state;
-            HealthSecond.Visible = state;
-            FirstDamageValueLabel.Visible = false;
-            SecondDamageValueLabel.Visible = false;
         }
     }
 }
