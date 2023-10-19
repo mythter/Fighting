@@ -35,23 +35,26 @@
             // 
             // CharacterNameLabel
             // 
+            CharacterNameLabel.BackColor = Color.Transparent;
             CharacterNameLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            CharacterNameLabel.Location = new Point(0, 182);
+            CharacterNameLabel.ForeColor = SystemColors.Control;
+            CharacterNameLabel.Location = new Point(0, 173);
             CharacterNameLabel.Margin = new Padding(0);
             CharacterNameLabel.Name = "CharacterNameLabel";
             CharacterNameLabel.Size = new Size(210, 33);
             CharacterNameLabel.TabIndex = 0;
             CharacterNameLabel.Text = "Name";
-            CharacterNameLabel.TextAlign = ContentAlignment.MiddleCenter;
+            CharacterNameLabel.TextAlign = ContentAlignment.TopCenter;
             // 
             // CharacterPictureBox
             // 
-            CharacterPictureBox.BackColor = SystemColors.Control;
+            CharacterPictureBox.BackColor = Color.Transparent;
             CharacterPictureBox.BackgroundImageLayout = ImageLayout.Zoom;
             CharacterPictureBox.Location = new Point(0, 0);
             CharacterPictureBox.Margin = new Padding(0);
             CharacterPictureBox.Name = "CharacterPictureBox";
             CharacterPictureBox.Size = new Size(210, 182);
+            CharacterPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             CharacterPictureBox.TabIndex = 1;
             CharacterPictureBox.TabStop = false;
             // 
@@ -59,8 +62,10 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Transparent;
             Controls.Add(CharacterPictureBox);
             Controls.Add(CharacterNameLabel);
+            ForeColor = SystemColors.ControlText;
             Name = "CharacterBox";
             Size = new Size(210, 215);
             ((System.ComponentModel.ISupportInitialize)CharacterPictureBox).EndInit();
