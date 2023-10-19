@@ -2,12 +2,22 @@ using Fighting.Controls;
 using Fighting.Enums;
 using Fighting.Helpers;
 using Fighting.Models;
+using System.Drawing.Text;
 using Type = Fighting.Enums.Type;
 
 namespace Fighting
 {
     public partial class MainForm : Form
     {
+        #region Custom font
+        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
+
+        private PrivateFontCollection fonts = new PrivateFontCollection();
+
+        Font CustomFont;
+        #endregion
+
         CharacterControl FirstCharacter;
         CharacterControl SecondCharacter;
 
@@ -62,6 +72,18 @@ namespace Fighting
             #endregion
 
             SetTransperency();
+
+            #region Custom font
+            byte[] fontData = Properties.Resources.CityBrawlersBoldCaps;
+            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
+            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
+            uint dummy = 0;
+            fonts.AddMemoryFont(fontPtr, Properties.Resources.CityBrawlersBoldCaps.Length);
+            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.CityBrawlersBoldCaps.Length, IntPtr.Zero, ref dummy);
+            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
+
+            CustomFont = new Font(fonts.Families[0], 70.0F);
+            #endregion
         }
 
         private void SetHealthValue(object? sender, EventArgs e)
@@ -131,12 +153,42 @@ namespace Fighting
             }
         }
 
-        private void CharacterKilled(object? sender, EventArgs e)
+        private async void CharacterKilled(object? sender, EventArgs e)
         {
-            //FirstCharacter.Health = 100;
-            //SecondCharacter.Health = 100;
+            SwitchVisibility(false);
+            BackColor = Color.Black;
+            BackgroundImage = null;
+
+            var label = new Label
+            {
+                TextAlign = ContentAlignment.MiddleCenter,
+                AutoSize = false,
+                Dock = DockStyle.Fill,
+                ForeColor = Color.LightGray,
+                Font = CustomFont,
+            };
+            Controls.Add(label);
+
+            if (FirstCharacter.Health == 0)
+            {
+                label.Text = "YOU LOOSE";
+            }
+            else
+            {
+                label.Text = "YOU WIN";
+            }
+            await Task.Delay(1500);
+
             Application.Restart();
             Environment.Exit(0);
+        }
+
+        private void SwitchVisibility(bool state)
+        {
+            FirstCharacter.Visible = state;
+            SecondCharacter.Visible = state;
+            HealthFirst.Visible = state;
+            HealthSecond.Visible = state;
         }
     }
 }
