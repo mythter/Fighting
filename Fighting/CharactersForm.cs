@@ -24,7 +24,9 @@ namespace Fighting
             StartPosition = FormStartPosition.CenterScreen;
             MaximizeBox = false;
             AutoScaleMode = AutoScaleMode.None;
-            Icon = Properties.Resources.icon; 
+            Icon = Properties.Resources.icon;
+            BackgroundImage = Properties.Resources.Background_2_blur;
+            BackgroundImageLayout = ImageLayout.Stretch;
             #endregion
 
             Character[] characters = CharacterGenerator.GenerateCharacters(Side.Left);
