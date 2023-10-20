@@ -137,14 +137,15 @@ namespace Fighting
             if (character.Side == Side.Left)
             {
                 label = FirstDamageValueLabel;
-                label.Location = new Point(ClientSize.Width / 2 - 100, 120);
+                label.Text = damageStr;
+                label.Location = new Point(character.Width + 70, 120);
             }
             else
             {
                 label = SecondDamageValueLabel;
-                label.Location = new Point(ClientSize.Width / 2 + 10, 120);
+                label.Text = damageStr;
+                label.Location = new Point(ClientSize.Width - character.Width - 50 - label.Width, 120);
             }
-            label.Text = damageStr;
             label.BringToFront();
 
             label.Visible = true;
